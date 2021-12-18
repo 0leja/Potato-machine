@@ -234,6 +234,21 @@ body{
             border-width: 1px;
             width: 75%;
         }
+
+            .footer__blocks{
+                margin: 10px;
+            }
+
+                .contacts{
+                    text-decoration: none;
+                    color: black;
+                    padding: 10px;
+                }
+
+                .contacts:hover{
+                    border-radius: 10px;
+                    background-color: rgba(154, 181, 231, 0.658);
+                }
     
     .sidebar__container{
         
