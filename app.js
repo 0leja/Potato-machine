@@ -4,7 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const router = require('./routes/Router.js')
 const sequelize = require('./db.js')
-
+const modules = require('./models/models.js')
 // Подключаем библиотеки
 
 const PORT = process.env.PORT || 3030; // ПОРТ
