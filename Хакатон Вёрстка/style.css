@@ -4,17 +4,23 @@ body{
 
 .btn{
     text-decoration: none;
+    padding: 2%;
     color: black;
 }
 
 .btn:hover{
-    background-color: rgba(219, 219, 219, 0.664);
+    background-color: rgba(214, 214, 214, 0.493);
     border-radius: 20px;
 }
 
 .active__page{
-    background-color: rgba(197, 197, 197, 0.664);
+    background-color: rgba(141, 141, 141, 0.39);
     border-radius: 20px;
+}
+
+.picture{
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
 .all__containers{
@@ -39,18 +45,23 @@ body{
             justify-content: space-around;
             margin: 20px 0;
             align-self: auto;
-            border-bottom-style: solid;
-            border-width: 1px;
-            padding: 10px 0;
+            margin: 10px 0;
+            background-color: rgba(69, 48, 111, 1);
+            border-radius: 10px;
+            padding: 5px 0;
+            font-size: large;
+            flex-wrap: nowrap;
+            line-height: 2;
         }
 
             .header__left{
                 align-self: center;
                 width: 60%;
+                flex-wrap: nowrap;
             }
 
                 .main__page__btn,.vacation__page__btn,.announcements__page__btn,.companies__page__btn{
-                padding: 2%;
+                    color: white;
                 }
 
                 
@@ -75,12 +86,153 @@ body{
              
             }
 
+                .gif__hackaton{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10%;
+                    width: 80%;
+                    height: 500px;
+                    background-color: rgba(196, 196, 196, 1);
+                }
+
+                    .gif__hackaton-text{
+                        margin-top: 300px;
+                        align-items: flex-end;
+                        padding: 5%;
+                        width: 50%;
+                        border-radius: 20px;
+                        background-color: rgba(255, 255, 255, 0.589);
+                    }
+
+                .announcements__block{
+                    display: flex;
+                    align-content: flex-start;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+                    .announcements__block-item{
+                        background-color: rgba(77, 217, 247, 1);
+                        width: 45%;
+                        border-radius: 10px;
+                        height: 200px;
+                        margin: 2.5% auto;
+                        display: flex;
+                        flex-direction: column;
+                        border-style: solid;
+                        border-width: 1px;
+                        padding: 1% 0;
+                    }
+
+                        .announcements-heading{
+                            margin: 10px;
+                            border-radius: 20px;
+                            padding: 3% 5%;
+                            background-color:white;
+                            font-weight: bold;
+                            color: black;
+                            text-decoration: none;
+                        }
+
+                        .announcements-info{
+                            padding: 1% 5%;
+                        }
+
                 .add__vacation-item{
                   
                 }
 
+                .personal__area-heading{
+                    text-align: center;
+                }
+
+                .personal__area-blocks{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                    .personal__area__sidebar{
+                        background-color: rgb(202, 202, 202);
+                        border-radius: 20px;
+                        height: 500px;
+                        width: 35%;
+                        
+                    }
+
+                        .sidebar__links{
+                            padding: 20px;
+                            text-align: start;
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                            .nickname-info{
+                                padding: 10% 2%;
+                            }
+
+                            .my__profile-btn{
+
+                            }
+
+                            .my__resume-btn{
+
+                            }
+
+                            .my__settings-btn{
+
+                            }
+
+                    .personal__area__main{
+                        width: 60%;
+                        border-radius: 20px;
+                        background-color: rgb(193, 217, 218);
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                        .usercard{
+                            align-self: center;
+                            width: 70%;
+                            height: 60%;
+                            padding: 10%;
+                            background-color: white;
+                            border-radius: 40px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                        }
+
+                            .usercard-text{
+                                width: 60%;
+                            }
+
+                                .usercard-heading{
+                                    font-size: small;
+                                }
+
+                                .usercard-info{
+
+                                }
+
+                                    .usercard-fio,.usercard-spec,.usercard-group{
+                                        padding: 10px;
+                                        border-bottom-style: solid;
+                                        border-width: 1px;
+                                    }
+
+                            .usercard-photo{
+                                width: 35%;
+                            }
+
         .footer{
-            
+            margin: 20px  auto;
+            padding: 20px;
+            border-top-style: solid;
+            border-width: 1px;
+            width: 75%;
         }
     
     .sidebar__container{
