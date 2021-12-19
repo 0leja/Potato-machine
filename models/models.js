@@ -22,11 +22,13 @@ const UserAvatar = sequelize.define('avatar', {
 })
 
 const UserApp = sequelize.define('user-app', { // Перечень заявок
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    AdverstId: {type: DataTypes.INTEGER, allowNull: false}
 })
 
-const UserFeeedback = sequelize.define('user-feedback', { // Перечень откликов
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
+const UserFeedback = sequelize.define('user-feedback', { // Перечень откликов
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    AdverstId: {type: DataTypes.INTEGER, allowNull: false}
 })
 
 const UserPortfolio = sequelize.define('portfolio', { // Портофолио
@@ -52,8 +54,8 @@ const Resume_Info = sequelize.define('resume-info', { // Инфо поле в р
 
 const UserAd = sequelize.define('user-advertisement', { // Объявление
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, unique: true, allowNull: false},
-    img: {type: DataTypes.STRING, allowNull: false},
+    name: {type: DataTypes.STRING, allowNull: false},
+    description: {type: DataTypes.STRING, allowNull: false},
     rating: {type: DataTypes.INTEGER, defaultValue: 0},
     type: {type: DataTypes.STRING, defaultValue: "ADVERST"}
 })
@@ -64,7 +66,8 @@ const UserAd_Info = sequelize.define('user-advertisement-info', { // Инфо п
     description: {type: DataTypes.STRING, allowNull: false}
 })
 
-const Advertisements = sequelize.define('all-advertisement', {}) // Все объяыления
+const Advertisements = sequelize.define('all-advertisement', {
+}) // Все объяыления
 
 const Rating = sequelize.define('rating', { // Отзыв-оценка
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
@@ -94,23 +97,15 @@ UserPortfolio.hasMany(PortfolioWork) // Одно портфолио имеет �
 PortfolioWork.belongsTo(UserPortfolio, {as: 'work'}) // Работа принадлежит портфолио
 
 
-User.hasOne(UserApp) // Один пользователь имеет один перечень заявок
+User.hasMany(UserApp) // Один пользователь имеет один перечень заявок
 UserApp.belongsTo(User) // Перечень заявок принадлежит одному пользователю
 
 
-UserApp.hasMany(UserAd, {as: 'adverst-app'}) // Один перечень заявок имеет много объявлений
-UserAd.belongsTo(UserApp) // Объявление принадлежит перечню заявок
+User.hasMany(UserFeedback) // Один пользователь имеет один перечень откликов
+UserFeedback.belongsTo(User) // Перечень откликов принадлежит одному пользователю
 
 
-User.hasOne(UserFeeedback) // Один пользователь имеет один перечень откликов
-UserFeeedback.belongsTo(User) // Перечень откликов принадлежит одному пользователю
-
-
-UserFeeedback.hasMany(UserAd, {as: 'adverst-fback'}) // Один перечень откликов имеет много объявлений
-UserAd.belongsTo(UserFeeedback) // Объявление принадлежит перечню откликов
-
-
-UserAd.hasMany(UserAd_Info) // Одно объявление имеет много инфо полей
+UserAd.hasMany(UserAd_Info, {as: 'adverst_info'}) // Одно объявление имеет много инфо полей
 UserAd_Info.belongsTo(UserAd) // Инфо поле принадлежит к одному объявлению
 
 
@@ -118,10 +113,8 @@ UserAd.hasMany(Rating) // Одно объявлени имеет много ре
 Rating.belongsTo(UserAd) // Рейтинг принадлежит объявлению
 
 
-Advertisements.hasMany(UserAd, {as: 'adverst'}) // Все объявления имеют много объявлений
-
 module.exports = {
-    User, UserFeeedback, UserApp, UserAd, UserPortfolio,
+    User, UserFeedback, UserApp, UserAd, UserPortfolio,
     UserResume, Rating, Resume_Info, PortfolioWork,
     UserAd_Info, Advertisements, UserAvatar
 }

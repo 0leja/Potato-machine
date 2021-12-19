@@ -5,8 +5,8 @@ const uuid = require('uuid')
 const path = require('path')
 const {User, UserApp, UserFeeedback, UserPortfolio, UserResume, UserAvatar} = require('../models/models.js')
 
-const generateJwt = (id, email, name, surname, aftername, classNum, git, phoneNum, role, img) => {
-    return jwt.sign({id, email, name, surname, aftername, classNum, git, phoneNum, role, img}, process.env.SECRET_KEY, {expiresIn: '24h'})
+const generateJwt = (id, email, name, surname, aftername, classNum, git, phoneNum, role, img, portfolioId, resumeId) => {
+    return jwt.sign({id, email, name, surname, aftername, classNum, git, phoneNum, role, img, portfolioId, resumeId}, process.env.SECRET_KEY, {expiresIn: '24h'})
 }
 //
 class UserController {
@@ -23,7 +23,7 @@ class UserController {
             return next(ApiError.notFoundReq('Уже есть такой пользователь'))
         }
 
-        const {img} = req.files
+        const img = req.files.img
         if (!img) {
             const fileName =  'no img'
         }
@@ -34,12 +34,12 @@ class UserController {
 
         const user = await User.create({email, password: hashPassword, name, surname, aftername, classNum, git, phoneNum, role})
         const avatar = await UserAvatar.create({img: fileName, userId: user.id})
-        const apps = await UserApp.create({userId: user.id})
-        const feedback = await UserFeeedback.create({userId: user.id})
         const portfolio = await UserPortfolio.create({userId: user.id})
         const resume = await UserResume.create({userId: user.id})
 
-        const token = generateJwt(user.id, user.email, user.name, user.surname, user.aftername, user.classNum, user.git, user.phoneNum, user.role, fileName)
+        const token = generateJwt(user.id, user.email, user.name, user.surname,
+                                    user.aftername, user.classNum, user.git, user.phoneNum,
+                                    user.role, fileName, portfolio.id, resume.id)
 
         return res.json({token})
     }
@@ -57,15 +57,24 @@ class UserController {
             if(!comparePassword) {
                 return next(ApiError.notFoundReq('Неправильный пароль'))
             }
-            const img = await UserAvatar.findOne({where: user.id})
-            const token = generateJwt(user.id, user.email, user.name, user.surname, user.aftername, user.classNum, user.git, user.phoneNum, user.role)
+            const userId = user.id
+
+            const ava = await UserAvatar.findOne({where: userId})
+            const portfolio = await UserPortfolio.findOne({where: userId})
+            const resume = await UserResume.findOne({where: userId})
+
+            const token = generateJwt(user.id, user.email, user.name, user.surname,
+                user.aftername, user.classNum, user.git, user.phoneNum, user.role,
+                ava.img, portfolio.id, resume.id)
 
             return res.json({token})
         }
     }
 
     async checkAuth (req, res, next)  {
-        const token = generateJwt(req.user.id, req.user.email, req.user.role)
+        const token = generateJwt(req.user.id, req.user.email, req.user.name, req.user.surname,
+            req.user.aftername, req.user.classNum, req.user.git, req.user.phoneNum, req.user.role,
+            req.user.img, req.user.portfolioId, req.user.resumeId)
 
         return res.json({token})
     }
