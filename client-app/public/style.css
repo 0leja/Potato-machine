@@ -1,0 +1,457 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* оглавление */
+.heading{
+    text-align: center;
+}
+
+
+/* кнопка */
+.btn{
+    text-decoration: none;
+    padding: 2%;
+    color: black;
+}
+
+.btn:hover{
+    background-color: rgba(214, 214, 214, 0.493);
+    border-radius: 20px;
+}
+
+.btn:active{
+    background-color: rgba(173, 173, 173, 0.493);
+    border-radius: 20px;
+}
+
+/* показывает какая страница активна */
+.active__page{
+    background-color: rgba(141, 141, 141, 0.39);
+    border-radius: 20px;
+}
+
+/* параметры для картинки */
+.picture{
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* все блоки */
+.all__containers{
+    margin: 0 5%;
+    background-color: rgb(245, 245, 245);
+    height: 2000px;
+    border-radius: 15px;
+}
+
+/* основа (фон) */
+    .main__container{
+        margin: 20px 5%;
+        padding: 0 auto;
+        height: 2000px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    /* хедер */
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 20px 0;
+            align-self: auto;
+            margin: 10px 0;
+            background-color: rgba(69, 48, 111, 1);
+            border-radius: 10px;
+            padding: 5px 0;
+            font-size: large;
+            flex-wrap: nowrap;
+            line-height: 2;
+            height: 70px;
+        }
+
+        /* левая часть хедера */
+            .header__left{
+                align-self: center;
+                width: 60%;
+                flex-wrap: nowrap;
+            }
+
+                /* кнопки на хедере */
+                .main__page__btn,.vacation__page__btn,.announcements__page__btn,.companies__page__btn{
+                    color: white;
+                }
+
+                
+        /* правая часть  хедера */
+            .header__right{
+                align-self: center;
+            }
+
+                /* ненужный рудимент, лень удалять */
+                .personal__area-item{
+                 
+                }
+
+                /* картинка личного кабинета */
+                .personal__area-picture{
+
+                }
+
+    /* главный контейнер */
+        .main{
+           
+        }
+
+        /* блоки для контейнера */
+            .containers{
+             
+            }
+
+            /* контакты */
+                .contacts__continers{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    border-radius: 10px;
+                    background-color: rgba(0, 162, 255, 0.534);
+                }
+
+                    /* блоки наших контактов */
+                    .contacts__continers-item1,.contacts__continers-item2,.contacts__continers-item3{
+                        background-color: rgba(242, 232, 255, 1);
+                        padding: 50px;
+                        margin: 50px;
+                        width: 10%;
+                        border-radius: 10px;
+                    }
+
+                        /* имена */
+                        .contacts__name{
+
+                        }
+
+                        /* информация контактов */
+                        .contacts-information{
+                            margin: 10px 0;
+                            background-color: rgba(62, 117, 235, 0.459);
+                            border-radius: 10px;
+                            padding: 10px;
+                        }
+            /* О сервисе */
+                .about__service{
+
+                }
+
+                    .about__service-heading{
+
+                    }
+
+                    .about__service-information{
+                        padding: 10px;
+                        background-color: rgb(224, 224, 224);
+                        border-radius: 10px;
+                    }
+
+                        .about-text{
+
+                        }
+
+            /* главная страница */
+
+                /* картинка */
+                .gif__hackaton{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10%;
+                    width: 80%;
+                    height: 500px;
+                    background-color: rgba(196, 196, 196, 1);
+                }
+
+                    /* текст на картинке */
+                    .gif__hackaton-text{
+                        margin-top: 300px;
+                        align-items: flex-end;
+                        padding: 5%;
+                        width: 50%;
+                        border-radius: 20px;
+                        background-color: rgba(255, 255, 255, 0.589);
+                    }
+                
+                
+            /* Вакансии и Объявления */
+
+                /* блоки с объявлениями */
+                .announcements__block{
+                    display: flex;
+                    align-content: flex-start;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+                    /* объявление */
+                    .announcements__block-item{
+                        background-color: rgba(77, 217, 247, 0.43);
+                        width: 45%;
+                        border-radius: 20px;
+                        height: 200px;
+                        margin: 2.5% auto;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1% 0;
+                    }
+
+                        /* оглавление объявления */
+                        .announcements-heading{
+                            margin: 10px;
+                            border-radius: 20px;
+                            padding: 3% 5%;
+                            background-color:white;
+                            font-weight: bold;
+                            color: black;
+                            text-decoration: none;
+                        }
+
+                        /* инфа объявления */
+                        .announcements-info{
+                            padding: 1% 5%;
+                        }
+
+                /* Опции управления вакансиями */
+                    .vacation__options{
+                        width: 100%;
+                        height: 100px;
+                        border-bottom-style: solid;
+                        border-width: 1px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: start;
+                        align-items: center;
+                        margin: 20px 0;
+                    }
+
+                        /* добавить объявление/резюме */
+                            .add__vacation-item{
+                                text-align: center;
+                                background-color: rgb(218, 218, 218);
+                                border-radius: 20px;
+                            }
+
+            /* Список компаний партнёров */
+                .companies__list{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: rgba(242, 232, 255, 1);
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+
+                    /* блок с компанией */
+                    
+                    .company{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 50%;
+                        height: 200px;
+                        background-color: rgba(255, 255, 255, 0.596);
+                        border-radius: 10px;
+                        margin: 10px;
+                        padding: 30px;
+                    }
+
+                        .company__block{
+                            display: flex;
+                            flex-direction: column;
+
+                        }
+
+                            .company__heading{
+                                font-weight: 700;
+                                font-size: 2vw;
+                            }
+
+            /* Личный кабинет */
+                
+                /* блоки */
+                    .personal__area-blocks{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        font-size: 1vw;
+                    }
+
+                    /* боковая панель */
+                        .personal__area__sidebar{
+                            background-color: rgb(202, 202, 202);
+                            border-radius: 20px;
+                            height: 500px;
+                            width: 35%;
+                        }
+
+                            /* блоки вкладок */
+                            .sidebar__links{
+                                padding: 20px;
+                                text-align: start;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                            }
+
+                                /* Ник пользователя */
+                                .nickname-info{
+                                    padding: 10% 2%;
+                                }
+
+                                /* кнопка профиль */
+                                .my__profile-btn{
+
+                                }
+
+                                /* кнопка резюме */
+                                .my__resume-btn{
+
+                                }
+
+                                /* кнопка настроек */
+                                .my__settings-btn{
+
+                                }
+
+                    /* основная панель */
+                        .personal__area__main{
+                            width: 60%;
+                            border-radius: 20px;
+                            background-color: rgb(193, 217, 218);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        /* карта пользователя */
+                            .usercard{
+                                align-self: center;
+                                width: 70%;
+                                height: 60%;
+                                padding: 10%;
+                                background-color: white;
+                                border-radius: 40px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-start;
+                                justify-content: space-between;
+                                border-style: solid;
+                                border-width: 1px;
+                                box-shadow: 3px 3px 5px rgb(61, 61, 61);
+                            }
+
+                            /* блок с текстом */
+                                .usercard-text{
+                                    width: 60%;
+                                }
+
+                                /* оглавление */
+                                    .usercard-heading{
+                                        font-size: small;
+                                    }
+
+                                    /* информация */
+                                    .usercard-info{
+
+                                    }
+
+                                        /* стили */
+                                        .usercard-fio,.usercard-spec,.usercard-group{
+                                            padding: 10px;
+                                            border-bottom-style: solid;
+                                            border-width: 1px;
+                                        }
+                            
+                            /* блок с фоткой пользователя */
+                                .usercard-photo{
+                                    width: 35%;
+                                    height: 50%;
+                                    align-items: center;
+                                    background-color: rgb(170, 170, 170);
+                                    border-radius: 60px;
+                                    border-style: solid;
+                                }
+
+                                    .user-photo{
+                                        max-width: 100%;
+                                        align-items: center;
+                                    }
+        /* кнопка загрузить ещё */
+
+            .load__more{
+                margin-top: 50px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+                .load__more-object{
+
+                }
+
+                    .load__more__btn{
+                        background-color: rgb(189, 189, 189);
+                        padding: 10px;
+                        border-radius: 20px;
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    .load__more__btn:hover{
+                        background-color: rgb(160, 160, 160);
+                    }
+
+                    .load__more__btn:active{
+                        background-color: rgb(201, 201, 201);
+                    }
+
+    /* футер */
+        .footer{
+            margin: 20px  auto;
+            padding: 20px;
+            border-top-style: solid;
+            border-width: 1px;
+            width: 75%;
+        }
+
+            /* блоки футера */
+            .footer__blocks{
+                margin: 10px;
+            }
+
+                /* контакты */
+                .contacts{
+                    text-decoration: none;
+                    color: black;
+                    padding: 10px;
+                }
+
+                .contacts:hover{
+                    border-radius: 10px;
+                    background-color: rgba(154, 181, 231, 0.658);
+                }
+
+                /* о сервисе */
+                .about{
+                    text-decoration: none;
+                    color: black;
+                    padding: 10px;
+                }
+
+                .about:hover{
+                    border-radius: 10px;
+                    background-color: rgba(154, 181, 231, 0.658);
+                }
